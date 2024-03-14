@@ -144,6 +144,7 @@ class _GeofencingMapScreenState extends State<GeofencingMapScreen> {
           padding: const EdgeInsets.all(kDefaultAllSidePadding),
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextFormField(
                   decoration: const InputDecoration().copyWith(
@@ -152,7 +153,7 @@ class _GeofencingMapScreenState extends State<GeofencingMapScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.25,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,

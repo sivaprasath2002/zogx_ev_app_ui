@@ -28,7 +28,7 @@ class VehicleWidget extends StatelessWidget {
           children: [
             CurrentVehicleCard(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SpeedometerContainer(),
                 FavStationContainer(),
@@ -50,26 +50,27 @@ class SpeedometerContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(kDefaultClipRRectRadius),
-      child: Container(
-        padding: const EdgeInsets.all(kDefaultAllSidePadding),
-        color: Theme.of(context).primaryColorDark,
-        child: RichText(
-          text: TextSpan(
-            text: "88",
-            style: GoogleFonts.orbitron().copyWith(
-              fontSize: Theme.of(context).textTheme.displayLarge?.fontSize,
-            ),
-            children: [
-              TextSpan(
-                text: "km/h",
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-            ],
-          ),
+    // return ClipRRect(
+    //   borderRadius: BorderRadius.circular(kDefaultClipRRectRadius),
+    //   child: Container(
+    //     // padding: const EdgeInsets.all(kDefaultAllSidePadding),
+    //     // color: Theme.of(context).primaryColorDark,
+    //     child:
+    return RichText(
+      text: TextSpan(
+        text: "88",
+        style: GoogleFonts.orbitron().copyWith(
+          fontSize: Theme.of(context).textTheme.displayLarge?.fontSize,
         ),
+        children: [
+          TextSpan(
+            text: "km/h",
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
+        ],
       ),
+      // ),
+      // ),
     );
   }
 }
@@ -114,33 +115,33 @@ class FavStationContainer extends StatelessWidget {
             ],
           );
         }
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(kDefaultClipRRectRadius),
-          child: Container(
-            padding: const EdgeInsets.all(kDefaultAllSidePadding),
-            color: Theme.of(context).primaryColorDark,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+        // double padding = MediaQuery.of(context).size.width;
+        // print(padding * 0.04);
+        // return Container(
+        //   // padding: EdgeInsets.all(padding * 0.04),
+        //   // color: Theme.of(context).primaryColorDark,
+        //   child:
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
               children: [
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.ev_station,
-                    ),
-                    const VerticalDivider(),
-                    Text(
-                      "Favorite station",
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                  ],
+                const Icon(
+                  Icons.ev_station,
                 ),
-                const SizedBox(
-                  height: kDefaultColumnWidgetSpacing,
+                const VerticalDivider(),
+                Text(
+                  "Favorite station",
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
-                content,
               ],
             ),
-          ),
+            const SizedBox(
+              height: kDefaultColumnWidgetSpacing,
+            ),
+            content,
+          ],
+          // ),
         );
       },
     );
